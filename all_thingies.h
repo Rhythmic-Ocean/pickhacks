@@ -82,8 +82,7 @@ void render_game_screen3(Game *game);
 void update_game_screen3(Game *game);
 void side_grid_generator3(Game *game);
 void input_handling_3d(Game *game);
-void render_game_screen4(Game *game);
 void update_game_screen4(Game *game);
-void rayloop (Game *game);
+void render_raycast(Game *game);
 
 #endif

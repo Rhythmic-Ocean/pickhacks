@@ -15,6 +15,7 @@ void update_game_screen3(Game *game){
     camera_movement(game);
     if (game->sprite_rect.x == 38 && game->sprite_rect.y == 51) { 
         game->state = STATE_MAZE4;
+        game->current_map = map;
         game->sprite_rect.x = 1;   
         game->sprite_rect.y = 1;
     }

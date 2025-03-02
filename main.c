@@ -64,7 +64,9 @@ int main(void) {
                 update_game_screen3(&game);
                 break;
             case STATE_MAZE4:
-                rayloop(&game);
+                input_handling_3d(&game);
+                render_raycast(&game);  
+                update_game_screen4(&game);
                 break;
             case STATE_YOU_WIN:
                 update_you_win_screen(&game);
@@ -74,7 +76,7 @@ int main(void) {
                 break;
         }
 
-        SDL_Delay(100);  
+        SDL_Delay(50);  
     }
 
     return 0; 
