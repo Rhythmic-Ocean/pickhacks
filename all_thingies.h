@@ -9,8 +9,8 @@
 #include<SDL2/SDL_mixer.h>
 
 #define TITLE "MAZE"
-#define SCREEN_WIDTH 1920
-#define SCREEN_HEIGHT 1280
+#define SCREEN_WIDTH 800
+#define SCREEN_HEIGHT 600
 #define IMAGE_FLAG (IMG_INIT_JPG | IMG_INIT_PNG)
 #define MAP_WIDTH 100
 #define MAP_HEIGHT 100

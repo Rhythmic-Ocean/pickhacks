@@ -13,9 +13,10 @@ void render_game_screen3(Game *game)
 
 void update_game_screen3(Game *game){
     camera_movement(game);
+    if (game->sprite_rect.x == 38 && game->sprite_rect.y == 51) { 
         game->state = STATE_YOU_WIN;
     }
-
+}
 
 void side_grid_generator3(Game *game) {
     

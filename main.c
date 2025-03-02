@@ -374,6 +374,6 @@ void render_you_win_screen(Game *game) {
 }
 void update_you_win_screen(Game *game) {
     if (game->keyboard_state[SDL_SCANCODE_SPACE]) {
-        game_cleanup(&game, EXIT_SUCCESS);
+        game_cleanup(game, EXIT_SUCCESS);
     }
 }
