@@ -19,6 +19,12 @@ int main(void) {
         .you_win_screen = NULL,
         .current_map = map,  
         .winning_sound = NULL,
+        .player_x = 2.0f,
+        .player_y = 2.0f,
+        .player_angle = 0.0f,
+        .fov = PI / 3.0f,
+        .wall_texture = NULL,
+
     };
 
     if (sdl_initialize(&game)) {
@@ -40,7 +46,6 @@ int main(void) {
                 game_cleanup(&game, EXIT_SUCCESS);
             }
         }
-
         switch (game.state) {
             case STATE_TITLE:
                 render_title_screen(&game);
@@ -57,6 +62,9 @@ int main(void) {
             case STATE_MAZE3:
                 render_game_screen3(&game);
                 update_game_screen3(&game);
+                break;
+            case STATE_MAZE4:
+                rayloop(&game);
                 break;
             case STATE_YOU_WIN:
                 update_you_win_screen(&game);
@@ -196,8 +204,12 @@ bool load_media(Game *game){
         fprintf(stderr, "Error loading music: %s\n",  Mix_GetError());
         return true;
     }
-    game->winning_sound = Mix_LoadWAV("sounds/you_win.ogg");
 
+    game->wall_texture = IMG_LoadTexture(game->renderer, "images/Walls.jpg");
+    if(!game->wall_texture){
+        fprintf(stderr, "Error loading 3d walls: %s\n",  IMG_GetError());
+        return true;
+    }
     
     return false;
 }  

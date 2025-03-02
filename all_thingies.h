@@ -16,12 +16,15 @@
 #define MAP_HEIGHT 100
 #define MIXER_FLAGX MIX_INIT_OGG 
 #define PI 3.14159f
+#define TEX_WIDTH 600
+#define TEX_HEIGHT 600
 
 typedef enum{
     STATE_TITLE,
     STATE_MAZE1,
     STATE_MAZE2,
     STATE_MAZE3,
+    STATE_MAZE4,
     STATE_YOU_WIN,
 } GameState;
 
@@ -53,6 +56,11 @@ typedef struct {
     Mix_Music *music;
     int (*current_map)[MAP_WIDTH];
     Mix_Chunk *winning_sound;
+    float player_x;      
+    float player_y;      
+    float player_angle;  
+    float fov;
+    SDL_Texture *wall_texture;
 } Game;
 
 bool sdl_initialize(Game *game);
@@ -73,5 +81,9 @@ void update_game_screen2(Game *game);
 void render_game_screen3(Game *game);
 void update_game_screen3(Game *game);
 void side_grid_generator3(Game *game);
+void input_handling_3d(Game *game);
+void render_game_screen4(Game *game);
+void update_game_screen4(Game *game);
+void rayloop (Game *game);
 
 #endif
